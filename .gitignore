@@ -1,0 +1,6 @@
+/PS.iml
+/PS1-rmi-calculator.iml
+
+#Projects excluded paths
+/PS1-rmi-calculator/.gradle/
+/PS1-rmi-calculator/build/
