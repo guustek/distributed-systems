@@ -7,7 +7,7 @@ java {
     sourceCompatibility = JavaVersion.VERSION_1_8
 }
 
-group = "rsi.ps1.rmi.calculator"
+group = "rsi.ps1"
 
 repositories {
     mavenCentral()

@@ -1,4 +1,4 @@
-package rsi.ps1.rmi.calculator;
+package rsi.ps1;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
