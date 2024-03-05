@@ -8,8 +8,8 @@ import rsi.ps2.RmiServer;
 public class Server {
     public static void main(String[] args) throws RemoteException {
         RmiServer rmiServer = new RmiServer();
-        Remote object = new ChatImpl();
-        rmiServer.registerObject(object, ChatImpl.REMOTE_NAME);
+        Remote object = new ChatServerImpl();
+        rmiServer.registerObject(object, ChatServerImpl.REMOTE_NAME);
 
         while(true) {}
     }

@@ -23,13 +23,15 @@ class Client {
 
             int selection = scanner.nextInt();
             switch (selection) {
-                case 1 -> System.out.println(remoteObject.getAll());
-                case 2 -> {
+                case 1:
+                    System.out.println(remoteObject.getAll());
+                    break;
+                case 2:
                     System.out.print("Name: ");
                     String name = scanner.next();
                     Product result = remoteObject.getByName(name);
                     System.out.println(result != null ? result : "Product with name" + name + " not found");
-                }
+                    break;
             }
         }
     }
