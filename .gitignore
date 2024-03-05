@@ -1,6 +1,10 @@
 /PS.iml
-/PS1-rmi-calculator.iml
+/PS1-rmi.iml
+/PS2-rmi.iml
 
 #Projects excluded paths
-/PS1-rmi-calculator/.gradle/
-/PS1-rmi-calculator/build/
+/PS1-rmi/.gradle/
+/PS1-rmi/build/
+
+/PS2-rmi/.gradle/
+/PS2-rmi/build/
