@@ -24,8 +24,8 @@ public class Server {
 
         //bind object
         Calculator calculator = new CalculatorImpl();
-        registry.bind(Calculator.OBJECT_NAME, calculator);
-        System.out.println("Registered object under " + registryUrl + "/" + Calculator.OBJECT_NAME);
+        registry.bind(Calculator.REMOTE_NAME, calculator);
+        System.out.println("Registered object under " + registryUrl + "/" + Calculator.REMOTE_NAME);
 
         System.out.println("Registered names: " + Arrays.toString(registry.list()));
         System.out.println();

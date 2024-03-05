@@ -19,9 +19,9 @@ public class Client {
         Registry remoteRegistry = LocateRegistry.getRegistry(host, port);
 
         //get remote object
-        String remoteObjectUrl = remoteRegistryUrl + "/" + Calculator.OBJECT_NAME;
+        String remoteObjectUrl = remoteRegistryUrl + "/" + Calculator.REMOTE_NAME;
         System.out.println("Looking for remote object at: " + remoteObjectUrl);
-        Calculator remoteObject = (Calculator) remoteRegistry.lookup(Calculator.OBJECT_NAME);
+        Calculator remoteObject = (Calculator) remoteRegistry.lookup(Calculator.REMOTE_NAME);
         System.out.println("Found remote object");
 
         Scanner scanner = new Scanner(System.in);

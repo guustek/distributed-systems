@@ -4,7 +4,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 public interface Calculator extends Remote {
-    String OBJECT_NAME = "calculator";
+    String REMOTE_NAME = "calculator";
 
     Number add(Number first, Number second) throws RemoteException;
 
