@@ -1,4 +1,4 @@
-package rsi.ps2.cw1;
+package rsi.ps2.products;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 import rsi.ps2.RmiClient;
 
-public class Client {
+class Client {
     public static void main(String[] args) throws RemoteException, NotBoundException {
         String host = args.length > 0 ? args[0] : "localhost";
         RmiClient rmiClient = new RmiClient(host);

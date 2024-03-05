@@ -1,10 +1,10 @@
-package rsi.ps2.cw1;
+package rsi.ps2.products;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.Collection;
 
-public interface ProductRepository extends Remote {
+interface ProductRepository extends Remote {
 
     String REMOTE_NAME = "productRepository";
 

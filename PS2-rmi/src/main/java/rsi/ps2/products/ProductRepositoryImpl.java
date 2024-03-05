@@ -1,11 +1,11 @@
-package rsi.ps2.cw1;
+package rsi.ps2.products;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Collection;
 import java.util.List;
 
-public class ProductRepositoryImpl extends UnicastRemoteObject implements ProductRepository {
+class ProductRepositoryImpl extends UnicastRemoteObject implements ProductRepository {
 
     private static final Collection<Product> records = List.of(
             new Product("Name1", "Description1"),
