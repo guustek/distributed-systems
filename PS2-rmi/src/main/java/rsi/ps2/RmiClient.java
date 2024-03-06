@@ -11,8 +11,10 @@ public class RmiClient {
     private final String remoteRegistryUrl;
 
     public RmiClient(String host) throws RemoteException {
+        String machineAddress = HostUtils.getMachineAddress();
+        System.out.println("Connecting to remote registry from " + machineAddress);
+        System.setProperty("java.rmi.server.hostname", machineAddress);
         int port = Registry.REGISTRY_PORT;
-
         //get remote registry
         this.remoteRegistryUrl = "rmi://" + host + ":" + port;
         System.out.println("Looking for remote registry at: " + remoteRegistryUrl);

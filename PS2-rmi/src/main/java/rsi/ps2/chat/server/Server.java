@@ -1,4 +1,4 @@
-package rsi.ps2.chat;
+package rsi.ps2.chat.server;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -9,8 +9,12 @@ public class Server {
     public static void main(String[] args) throws RemoteException {
         RmiServer rmiServer = new RmiServer();
         Remote object = new ChatServerImpl();
-        rmiServer.registerObject(object, ChatServerImpl.REMOTE_NAME);
+        rmiServer.registerObject(object, ChatServer.REMOTE_NAME);
+        System.out.println();
+        System.out.println();
+        System.out.println("Server started.");
 
-        while(true) {}
+        while (true) {
+        }
     }
 }

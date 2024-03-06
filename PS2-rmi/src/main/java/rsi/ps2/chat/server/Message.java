@@ -1,4 +1,4 @@
-package rsi.ps2.chat;
+package rsi.ps2.chat.server;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -12,11 +12,11 @@ public final class Message implements Serializable {
         this.message = message;
     }
     
-    public String author() {
+    public String getAuthor() {
         return author;
     }
     
-    public String message() {
+    public String getMessage() {
         return message;
     }
     
@@ -40,7 +40,7 @@ public final class Message implements Serializable {
     
     @Override
     public String toString() {
-        return "[" + author + "]: " + message;
+        return "[" + author + "] : " + message;
     }
     
 }
