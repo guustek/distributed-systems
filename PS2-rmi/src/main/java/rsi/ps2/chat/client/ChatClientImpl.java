@@ -32,6 +32,7 @@ public class ChatClientImpl extends UnicastRemoteObject implements ChatClient {
         try {
             System.out.println("Disconnecting.");
             this.server.disconnect(this);
-        } catch (RemoteException ignored) {}
+        } catch (RemoteException ignored) {
+        }
     }
 }

@@ -1,3 +1,5 @@
+/.idea/
+
 /PS.iml
 /PS1-rmi.iml
 /PS2-rmi.iml
@@ -8,3 +10,4 @@
 
 /PS2-rmi/.gradle/
 /PS2-rmi/build/
+

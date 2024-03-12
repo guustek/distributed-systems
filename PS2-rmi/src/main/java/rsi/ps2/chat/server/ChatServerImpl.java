@@ -1,12 +1,13 @@
 package rsi.ps2.chat.server;
 
 import java.rmi.ConnectException;
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
-import rsi.ps2.RmiServer;
 import rsi.ps2.chat.client.ChatClient;
 
 public class ChatServerImpl extends UnicastRemoteObject implements ChatServer {

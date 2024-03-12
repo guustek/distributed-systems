@@ -11,4 +11,5 @@ public interface ChatClient extends Remote, Serializable {
     String getName() throws RemoteException;
     
     void receive(Message message) throws RemoteException;
+
 }
