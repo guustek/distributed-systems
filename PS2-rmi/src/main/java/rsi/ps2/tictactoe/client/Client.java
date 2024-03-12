@@ -21,25 +21,25 @@ public class Client {
 
         TicTacToeClient client = new TicTacToeClientImpl(remoteServer);
         MarkType markType = remoteServer.connect(client);
-        if(markType == null) {
+        if (markType == null) {
             System.exit(0);
         }
 
-        while(!remoteServer.isGameOn()) {
+        while (!remoteServer.isGameOn()) {
 
         }
 
-
         while (remoteServer.isGameOn()) {
             if (remoteServer.getCurrentMarkTurn() == markType) {
-                System.out.print("Type coordinates (x, y): ");
+                System.out.print("Type coordinates (x, y) - playing as " + markType + " : ");
                 int x = scanner.nextInt();
                 int y = scanner.nextInt();
                 boolean put = remoteServer.putMark(x, y);
-                if(!put) {
+                if (!put) {
                     System.out.println("Incorrect coordinate");
                 }
             }
         }
+        System.exit(0);
     }
 }

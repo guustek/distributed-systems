@@ -13,8 +13,5 @@ public class Server {
         System.out.println();
         System.out.println();
         System.out.println("Server started.");
-
-        while (true) {
-        }
     }
 }

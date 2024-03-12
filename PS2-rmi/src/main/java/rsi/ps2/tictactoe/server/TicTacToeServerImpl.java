@@ -4,6 +4,8 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.EnumMap;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import rsi.ps2.tictactoe.client.TicTacToeClient;
 
@@ -33,6 +35,7 @@ public class TicTacToeServerImpl extends UnicastRemoteObject implements TicTacTo
                     broadcastMessage("[" + SERVER_NAME + "]: Game started");
                     broadcastMessage(board.toString());
                     isGameOn = true;
+                    System.out.println("Game started");
                     currentMarkTurn = MarkType.X;
                 } else {
                     client.receiveMessage("[" + SERVER_NAME + "]: Waiting for other player");
@@ -62,13 +65,30 @@ public class TicTacToeServerImpl extends UnicastRemoteObject implements TicTacTo
         }
         if (board.isWin(currentMarkTurn)) {
             broadcastMessage("[" + SERVER_NAME + "]: Player " + currentMarkTurn + " has won!");
-            isGameOn = false;
+            finishGame();
         } else if (board.isDraw()) {
             broadcastMessage("[" + SERVER_NAME + "]: Draw!");
-            isGameOn = false;
+            finishGame();
         }
         currentMarkTurn = currentMarkTurn == MarkType.X ? MarkType.O : MarkType.X;
+        if (!isGameOn) {
+            scheduleShutdown();
+        }
         return true;
+    }
+
+    private static void scheduleShutdown() {
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                System.exit(0);
+            }
+        }, 2000);
+    }
+
+    private void finishGame() {
+        isGameOn = false;
+        System.out.println("Game finished");
     }
 
 
