@@ -9,7 +9,7 @@ import rsi.ps2.RmiClient;
 class Client {
     public static void main(String[] args) throws RemoteException, NotBoundException {
         String host = args.length > 0 ? args[0] : "localhost";
-        RmiClient rmiClient = new RmiClient(host);
+        RmiClient rmiClient = new RmiClient(host, false);
         ProductRepository remoteObject = rmiClient.getRemoteObject(ProductRepository.REMOTE_NAME);
 
         Scanner scanner = new Scanner(System.in);

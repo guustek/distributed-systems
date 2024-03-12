@@ -11,7 +11,7 @@ import rsi.ps2.tictactoe.server.TicTacToeServer;
 public class Client {
     public static void main(String[] args) throws NotBoundException, RemoteException {
         String host = args.length > 0 ? args[0] : "localhost";
-        RmiClient rmiClient = new RmiClient(host);
+        RmiClient rmiClient = new RmiClient(host, true);
 
         TicTacToeServer remoteServer = rmiClient.getRemoteObject(TicTacToeServer.REMOTE_NAME);
 

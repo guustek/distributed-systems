@@ -15,7 +15,7 @@ public class Client {
 
     public static void main(String[] args) throws RemoteException, NotBoundException {
         String host = args.length > 0 ? args[0] : "localhost";
-        RmiClient rmiClient = new RmiClient(host);
+        RmiClient rmiClient = new RmiClient(host, true);
 
         ChatServer remoteServer = rmiClient.getRemoteObject(ChatServer.REMOTE_NAME);
 

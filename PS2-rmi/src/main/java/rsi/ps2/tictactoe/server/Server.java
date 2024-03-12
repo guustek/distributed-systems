@@ -7,7 +7,7 @@ import rsi.ps2.RmiServer;
 
 public class Server {
     public static void main(String[] args) throws RemoteException {
-        RmiServer rmiServer = new RmiServer();
+        RmiServer rmiServer = new RmiServer(true);
         Remote object = new TicTacToeServerImpl();
         rmiServer.registerObject(object, TicTacToeServer.REMOTE_NAME);
         System.out.println();
