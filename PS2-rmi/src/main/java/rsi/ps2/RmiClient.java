@@ -23,7 +23,7 @@ public class RmiClient {
         if(useSSL) {
             String password = "password";
             //System.setProperty("javax.net.ssl.debug", "all");
-            System.setProperty("javax.net.ssl.trustStore", "truststore.jts");
+            System.setProperty("javax.net.ssl.trustStore", "PS2-rmi/truststore.jts");
             System.setProperty("javax.net.ssl.trustStorePassword", password);
             this.remoteRegistry = LocateRegistry.getRegistry(host, port, new SslRMIClientSocketFactory());
         } else {

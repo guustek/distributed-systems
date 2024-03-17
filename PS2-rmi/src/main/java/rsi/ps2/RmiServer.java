@@ -21,7 +21,7 @@ public class RmiServer {
         if (useSSL) {
             String password = "password";
             //System.setProperty("javax.net.ssl.debug", "all");
-            System.setProperty("javax.net.ssl.keyStore", "keystore.jks");
+            System.setProperty("javax.net.ssl.keyStore", "PS2-rmi/keystore.jks");
             System.setProperty("javax.net.ssl.keyStorePassword", password);
             this.registry = LocateRegistry.createRegistry(
                     port,
