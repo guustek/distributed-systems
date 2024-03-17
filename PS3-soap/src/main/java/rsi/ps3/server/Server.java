@@ -17,5 +17,7 @@ public class Server {
         String address = "http://" + host + ":" + PORT + "/" + serviceName;
         Endpoint.publish(address, service);
         System.out.println(serviceName + " service published at: " + address);
+        String wsdlLocation = address + "?wsdl";
+        System.out.println("Schema location: " + wsdlLocation);
     }
 }
