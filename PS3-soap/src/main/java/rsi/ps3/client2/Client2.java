@@ -13,9 +13,11 @@ import rsi.ps3.server.Server;
 public class Client2 {
     public static void main(String[] args) throws MalformedURLException {
         String host = args.length > 0 ? args[0] : HostUtils.getMachineAddress();
+        int port = args.length > 1 ? Integer.parseInt(args[1]) :  Server.PORT;
 
         String serviceName = HelloWorld.class.getSimpleName();
-        String wsdl = "http://" + host + ":" + Server.PORT + "/" + serviceName + "?wsdl";
+
+        String wsdl = "http://" + host + ":" + port + "/" + serviceName + "?wsdl";
         URL url = new URL(wsdl);
 
         String targetNamespace = "http://server.ps3.rsi/";
