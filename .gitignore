@@ -4,6 +4,7 @@
 /PS1-rmi.iml
 /PS2-rmi.iml
 /PS3-soap.iml
+/PS4-glassfish.iml
 
 #Projects excluded paths
 /PS1-rmi/.gradle/
@@ -14,3 +15,6 @@
 
 /PS3-soap/.gradle/
 /PS3-soap/build/
+
+/PS4-glassfish/.gradle/
+/PS4-glassfish/build/
