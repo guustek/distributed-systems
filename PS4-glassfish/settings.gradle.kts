@@ -1,1 +1,0 @@
-rootProject.name = "PS4-glassfish"

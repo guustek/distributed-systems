@@ -1,8 +1,8 @@
-package rsi.ps4;
+package rsi.ps4.services;
 
 import javax.jws.WebService;
 
-@WebService(endpointInterface = "rsi.ps4.HelloWorld")
+@WebService(endpointInterface = "rsi.ps4.services.HelloWorld")
 public class HelloWorldImpl implements HelloWorld {
 
     @Override

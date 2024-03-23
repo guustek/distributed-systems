@@ -1,4 +1,4 @@
-package rsi.ps4;
+package rsi.ps4.services;
 
 
 import javax.jws.WebMethod;
