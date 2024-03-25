@@ -18,3 +18,6 @@
 
 /PS4-soap/.gradle/
 /PS4-soap/build/
+/PS4-soap/CSharpClient/.idea/
+/PS4-soap/CSharpClient/CSharpClient/bin/
+/PS4-soap/CSharpClient/CSharpClient/obj/

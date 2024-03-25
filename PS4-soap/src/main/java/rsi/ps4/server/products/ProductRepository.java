@@ -7,4 +7,6 @@ public interface ProductRepository {
     Collection<Product> getAll();
 
     Product getByName(String name);
+
+    void add(Product product);
 }
