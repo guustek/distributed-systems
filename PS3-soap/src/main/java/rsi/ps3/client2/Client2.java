@@ -5,14 +5,13 @@ import javax.xml.ws.Service;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import rsi.ps3.HostUtils;
 import rsi.ps3.server.HelloWorld;
 import rsi.ps3.server.HelloWorldImpl;
 import rsi.ps3.server.Server;
 
 public class Client2 {
     public static void main(String[] args) throws MalformedURLException {
-        String host = args.length > 0 ? args[0] : HostUtils.getMachineAddress();
+        String host = args.length > 0 ? args[0] : "localhost";
         int port = args.length > 1 ? Integer.parseInt(args[1]) :  Server.PORT;
 
         String serviceName = HelloWorld.class.getSimpleName();

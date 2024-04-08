@@ -1,8 +1,6 @@
-package rsi.ps3.server;
+package rsi.ps5.server;
 
 import javax.xml.ws.Endpoint;
-
-import rsi.ps3.HostUtils;
 
 public class Server {
 
@@ -11,12 +9,12 @@ public class Server {
     public static void main(String[] args) {
         String host = args.length > 0 ? args[0] : "localhost";
 
-        HelloWorld service = new HelloWorldImpl();
+        ShopInfoService service = new ShopInfoServiceImpl();
 
-        String serviceName = HelloWorld.class.getSimpleName();
+        String serviceName = ShopInfoService.class.getSimpleName();
         String address = "http://" + host + ":" + PORT + "/" + serviceName;
         Endpoint.publish(address, service);
-        System.out.println(serviceName + " service published at: " + address);
+        System.out.println(serviceName + " published at: " + address);
         String wsdlLocation = address + "?wsdl";
         System.out.println("Schema location: " + wsdlLocation);
     }
