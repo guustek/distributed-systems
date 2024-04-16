@@ -14,7 +14,7 @@ import rsi.ps5.client.generated.authservice.AuthenticationServiceImpl;
 public class AuthClient {
     public static void main(String[] args) {
         String username = args.length > 0 ? args[0] : "Pawel";
-        String password = args.length > 0 ? args[0] : "123";
+        String password = args.length > 1 ? args[1] : "123";
         AuthenticationServiceImpl client = new AuthenticationServiceImpl();
         AuthenticationService port = client.getAuthenticationServiceImplPort();
 
