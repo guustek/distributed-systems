@@ -1,5 +1,5 @@
 
-package rsi.ps5.client.generated;
+package rsi.ps5.client.generated.shopinfoservice;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
@@ -10,7 +10,7 @@ import javax.xml.namespace.QName;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the rsi.ps5.client.generated package. 
+ * generated in the rsi.ps5.client.generated.shopinfoservice package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -29,7 +29,7 @@ public class ObjectFactory {
     private final static QName _GetShopInfo_QNAME = new QName("http://server.ps5.rsi/", "getShopInfo");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: rsi.ps5.client.generated
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: rsi.ps5.client.generated.shopinfoservice
      * 
      */
     public ObjectFactory() {

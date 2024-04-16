@@ -1,5 +1,5 @@
 
-package rsi.ps5.client.generated;
+package rsi.ps5.client.generated.shopinfoservice;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -34,8 +34,8 @@ public interface ShopInfoService {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getShopInfo", targetNamespace = "http://server.ps5.rsi/", className = "rsi.ps5.client.generated.GetShopInfo")
-    @ResponseWrapper(localName = "getShopInfoResponse", targetNamespace = "http://server.ps5.rsi/", className = "rsi.ps5.client.generated.GetShopInfoResponse")
+    @RequestWrapper(localName = "getShopInfo", targetNamespace = "http://server.ps5.rsi/", className = "rsi.ps5.client.generated.shopinfoservice.GetShopInfo")
+    @ResponseWrapper(localName = "getShopInfoResponse", targetNamespace = "http://server.ps5.rsi/", className = "rsi.ps5.client.generated.shopinfoservice.GetShopInfoResponse")
     @Action(input = "http://server.ps5.rsi/ShopInfoService/getShopInfoRequest", output = "http://server.ps5.rsi/ShopInfoService/getShopInfoResponse", fault = {
         @FaultAction(className = InvalidInputException_Exception.class, value = "http://server.ps5.rsi/ShopInfoService/getShopInfo/Fault/InvalidInputException")
     })

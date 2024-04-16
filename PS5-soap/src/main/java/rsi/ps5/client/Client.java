@@ -1,8 +1,8 @@
 package rsi.ps5.client;
 
-import rsi.ps5.client.generated.InvalidInputException_Exception;
-import rsi.ps5.client.generated.ShopInfoServiceImpl;
-import rsi.ps5.client.generated.ShopInfoService;
+import rsi.ps5.client.generated.shopinfoservice.InvalidInputException_Exception;
+import rsi.ps5.client.generated.shopinfoservice.ShopInfoService;
+import rsi.ps5.client.generated.shopinfoservice.ShopInfoServiceImpl;
 
 public class Client {
     public static void main(String[] args) {

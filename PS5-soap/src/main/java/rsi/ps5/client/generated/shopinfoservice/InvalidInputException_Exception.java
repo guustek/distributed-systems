@@ -1,5 +1,5 @@
 
-package rsi.ps5.client.generated;
+package rsi.ps5.client.generated.shopinfoservice;
 
 import javax.xml.ws.WebFault;
 
@@ -45,7 +45,7 @@ public class InvalidInputException_Exception
     /**
      * 
      * @return
-     *     returns fault bean: rsi.ps5.client.generated.InvalidInputException
+     *     returns fault bean: rsi.ps5.client.generated.shopinfoservice.InvalidInputException
      */
     public InvalidInputException getFaultInfo() {
         return faultInfo;

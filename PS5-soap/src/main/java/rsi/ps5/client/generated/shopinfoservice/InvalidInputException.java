@@ -1,5 +1,5 @@
 
-package rsi.ps5.client.generated;
+package rsi.ps5.client.generated.shopinfoservice;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

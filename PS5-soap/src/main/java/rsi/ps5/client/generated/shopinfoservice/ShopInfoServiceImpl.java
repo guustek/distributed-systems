@@ -1,8 +1,9 @@
 
-package rsi.ps5.client.generated;
+package rsi.ps5.client.generated.shopinfoservice;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import javax.jws.HandlerChain;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 import javax.xml.ws.WebEndpoint;
@@ -18,6 +19,7 @@ import javax.xml.ws.WebServiceFeature;
  * 
  */
 @WebServiceClient(name = "ShopInfoServiceImpl", targetNamespace = "http://server.ps5.rsi/", wsdlLocation = "http://localhost:9999/ShopInfoService?wsdl")
+@HandlerChain(file="client-handler-chain.xml")
 public class ShopInfoServiceImpl
     extends Service
 {
