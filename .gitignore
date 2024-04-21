@@ -1,11 +1,6 @@
 /.idea/
 
 /PS.iml
-/PS1-rmi.iml
-/PS2-rmi.iml
-/PS3-soap.iml
-/PS4-soap.iml
-/PS5-soap.iml
 
 #Projects excluded paths
 /PS1-rmi/.gradle/
@@ -26,3 +21,6 @@
 
 /PS5-soap/.gradle/
 /PS5-soap/build/
+
+/PS6-soap/.gradle/
+/PS6-soap/build/

@@ -12,12 +12,13 @@ public class Client {
         ImageServiceImpl client = new ImageServiceImpl();
         ImageService port = client.getImageServiceImplPort(new MTOMFeature());
 
-        byte[] bytes = port.downloadImage("pb_logo.png");
+        byte[] bytes = port.downloadImage("logo_pb.png");
 
         JFrame frame = new JFrame();
-        frame.setSize(300,300);
+        frame.setSize(500, 500);
         JLabel label = new JLabel(new ImageIcon(bytes));
         frame.add(label);
         frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
