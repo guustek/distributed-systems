@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "ImageServiceImpl", targetNamespace = "http://server.ps6.rsi/", wsdlLocation = "http://localhost:9999/ImageServiceImpl?wsdl")
+@WebServiceClient(name = "ImageServiceImpl", targetNamespace = "http://server.ps6.rsi/", wsdlLocation = "http://localhost:8080/PS6-soap/ImageServiceImpl?wsdl")
 public class ImageServiceImpl
     extends Service
 {
@@ -30,7 +30,7 @@ public class ImageServiceImpl
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://localhost:9999/ImageServiceImpl?wsdl");
+            url = new URL("http://localhost:8080/PS6-soap/ImageServiceImpl?wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

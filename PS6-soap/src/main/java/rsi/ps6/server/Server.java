@@ -4,7 +4,7 @@ import javax.xml.ws.Endpoint;
 
 public class Server {
 
-    public static final int PORT = 9999;
+    public static final int PORT = 8080;
 
     public static void main(String[] args) {
         String host = args.length > 1 ? args[1] : "localhost";
