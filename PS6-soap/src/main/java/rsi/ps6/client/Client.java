@@ -14,6 +14,8 @@ public class Client {
 
     public static void main(String[] args) {
 
+        boolean useSSL = args.length > 0 && Boolean.parseBoolean(args[0]);
+
         HttpsURLConnection.setDefaultHostnameVerifier((hostname, sslSession) -> true);
 
         System.setProperty("javax.net.ssl.trustStore", "PS6-soap/src/main/java/rsi/ps6/client/client_cacerts.jks");
@@ -24,12 +26,17 @@ public class Client {
 
         BindingProvider bindProv = (BindingProvider) port;
         Map<String, Object> context = bindProv.getRequestContext();
-        context.put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, "https://localhost:8443/PS6-soap/ImageServiceImpl");
+
+        if(useSSL) {
+            context.put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, "https://localhost:8443/PS6-soap/ImageServiceImpl");
+        }
 
         byte[] bytes = port.downloadImage("logo_pb.png");
 
         JFrame frame = new JFrame();
+
         frame.setSize(500, 500);
+        frame.setLocationRelativeTo(null);
         JLabel label = new JLabel(new ImageIcon(bytes));
         frame.add(label);
         frame.setVisible(true);
