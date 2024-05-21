@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime" version="2.0">
+
+    <endpoint
+            implementation="rsi.soap.project.services.CarRentalServiceImpl"
+            name="CarRentalService"
+            url-pattern="/CarRentalService" />
+</endpoints>
