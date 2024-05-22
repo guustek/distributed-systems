@@ -59,6 +59,7 @@ public class ReservationRepositoryImpl implements ReservationRepository {
         if (!filePath.toFile().exists()) {
             try {
                 filePath.toFile().createNewFile();
+                saveToFile();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
