@@ -13,7 +13,7 @@ from zeep import Client
 session = Session()
 session.verify = False
 
-client = Client('https://localhost:8443/CarRentalService?wsdl', transport=MtomTransport(session=session))
+client = Client('http://localhost:8080/CarRentalService?wsdl', transport=MtomTransport(session=session))
 
 service = client.service
 
