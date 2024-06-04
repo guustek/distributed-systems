@@ -1,19 +1,30 @@
 import os
+import sys
 import tkinter as tk
-from io import BytesIO
-from tkinter import messagebox
+import tkcalendar as tkc
+import io
+import tkinter
+import babel
+import babel.numbers
 from tkinter import ttk
 
-from PIL import Image, ImageTk
-from pymtom_xop import MtomTransport
-from requests import Session
-from tkcalendar import DateEntry
-from zeep import Client
+import PIL
+import pymtom_xop
+import requests
+import zeep
 
-session = Session()
+session = requests.Session()
 session.verify = False
 
-client = Client('http://localhost:8080/CarRentalService?wsdl', transport=MtomTransport(session=session))
+host = sys.argv[1]
+useSSL = bool(sys.argv[2])
+
+protocol = "https" if useSSL else "http"
+port = "8443" if useSSL else "8080"
+
+wsdl = f'{protocol}://{host}:{port}/CarRentalService?wsdl'
+
+client = zeep.Client(wsdl, transport=pymtom_xop.MtomTransport(session=session))
 
 service = client.service
 
@@ -50,9 +61,9 @@ def display_car_details(event):
     selected_index = car_listbox.curselection()[0]
     selected_car = cars[selected_index]
 
-    image = Image.open(BytesIO(selected_car.image))
+    image = PIL.Image.open(io.BytesIO(selected_car.image))
     image = image.resize((150, 100))
-    car_image = ImageTk.PhotoImage(image)
+    car_image = PIL.ImageTk.PhotoImage(image)
 
     car_image_label.config(image=car_image)
     car_image_label.image = car_image
@@ -70,7 +81,7 @@ def reserve_car():
     start_date = start_date_entry.get_date()
     end_date = end_date_entry.get_date()
     reservation_id = service.reserveCar(selected_car.id, start_date, end_date)
-    messagebox.showinfo("Car reservation",
+    tkinter.messagebox.showinfo("Car reservation",
                         f"""
                         Reservation successful
                         Reservation id: {reservation_id}
@@ -80,7 +91,7 @@ def reserve_car():
 def cancel_reservation():
     confirmation_text = confirmation_entry.get()
     service.cancelReservation(confirmation_text)
-    messagebox.showinfo("Reservation cancel",
+    tkinter.messagebox.showinfo("Reservation cancel",
                         f"""
                         Reservation cancelled successfully
                         Reservation id: {confirmation_text}
@@ -107,11 +118,11 @@ car_details_label = tk.Label(main_frame, text="")
 car_details_label.grid(row=1, column=1)
 
 ttk.Label(main_frame, text="Start Date:").grid(row=2, column=1, sticky=tk.W)
-start_date_entry = DateEntry(main_frame, date_pattern='yyyy-mm-dd')
+start_date_entry = tkc.DateEntry(main_frame, date_pattern='yyyy-mm-dd')
 start_date_entry.grid(row=2, column=2)
 
 ttk.Label(main_frame, text="End Date:").grid(row=3, column=1, sticky=tk.W)
-end_date_entry = DateEntry(main_frame, date_pattern='yyyy-mm-dd')
+end_date_entry = tkc.DateEntry(main_frame, date_pattern='yyyy-mm-dd')
 end_date_entry.grid(row=3, column=2)
 
 search_button = ttk.Button(main_frame, text="Search", command=search)
