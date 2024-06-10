@@ -28,5 +28,14 @@
 /PS7-soap/.gradle/
 /PS7-soap/build/
 
+/PS7-client/.gradle/
+/PS7-client/build/
+
 /Project-SOAP/.gradle/
 /Project-SOAP/build/
+
+/PS9-rest/.gradle/
+/PS9-rest/build/
+
+/PS10-rest/.gradle/
+/PS10-rest/build/

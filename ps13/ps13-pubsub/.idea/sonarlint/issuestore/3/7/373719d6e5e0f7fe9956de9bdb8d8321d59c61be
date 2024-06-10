@@ -1,0 +1,6 @@
+
+M
+java:S2629"7Use the built-in formatting to construct this argument.(ÅÎ²¯
+N	java:S106"9Replace this use of System.out or System.err by a logger.(Å‚’í
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ïõó‹ýÿÿÿÿ
+S	java:S106 "9Replace this use of System.out or System.err by a logger.(Û™›àÿÿÿÿÿ
