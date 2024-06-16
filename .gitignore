@@ -28,9 +28,6 @@
 /PS7-soap/.gradle/
 /PS7-soap/build/
 
-/PS7-client/.gradle/
-/PS7-client/build/
-
 /Project-SOAP/.gradle/
 /Project-SOAP/build/
 
@@ -39,6 +36,9 @@
 
 /PS10-rest/.gradle/
 /PS10-rest/build/
+
+/PS13-14-rabbitmq/.gradle/
+/PS13-14-rabbitmq/build/
 
 /Project-REST/.gradle/
 /Project-REST/build/

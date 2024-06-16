@@ -1,1 +1,0 @@
-rootProject.name = "PS7-soap"
