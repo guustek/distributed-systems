@@ -8,7 +8,7 @@ import babel
 import babel.numbers
 from tkinter import ttk
 
-import PIL
+from PIL import Image, ImageTk  # Updated import
 import pymtom_xop
 import requests
 import zeep
@@ -16,8 +16,12 @@ import zeep
 session = requests.Session()
 session.verify = False
 
+if len(sys.argv) < 3:
+    print("Usage: <host> <useSSL>")
+    sys.exit(1)
+
 host = sys.argv[1]
-useSSL = bool(sys.argv[2])
+useSSL = sys.argv[1].lower() == 'true'
 
 protocol = "https" if useSSL else "http"
 port = "8443" if useSSL else "8080"
@@ -61,9 +65,9 @@ def display_car_details(event):
     selected_index = car_listbox.curselection()[0]
     selected_car = cars[selected_index]
 
-    image = PIL.Image.open(io.BytesIO(selected_car.image))
+    image = Image.open(io.BytesIO(selected_car.image))
     image = image.resize((150, 100))
-    car_image = PIL.ImageTk.PhotoImage(image)
+    car_image = ImageTk.PhotoImage(image)
 
     car_image_label.config(image=car_image)
     car_image_label.image = car_image
