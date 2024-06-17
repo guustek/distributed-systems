@@ -4,6 +4,7 @@ package rsi.project.rest.repositories;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.stereotype.Component;
 import rsi.project.rest.models.Car;
@@ -22,8 +23,8 @@ public class CarRepositoryImpl implements CarRepository {
     }
 
     @Override
-    public Car getById(int id) {
-        return cars.get(id);
+    public Optional<Car> getById(int id) {
+        return Optional.ofNullable(cars.get(id));
     }
 
     @Override

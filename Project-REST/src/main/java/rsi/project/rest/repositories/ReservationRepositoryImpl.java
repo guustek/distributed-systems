@@ -6,6 +6,7 @@ import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
@@ -25,8 +26,8 @@ public class ReservationRepositoryImpl implements ReservationRepository {
     }
 
     @Override
-    public Reservation getById(int id) {
-        return reservations.get(id);
+    public Optional<Reservation> getById(int id) {
+        return Optional.ofNullable(reservations.get(id));
     }
 
     @Override
@@ -51,10 +52,10 @@ public class ReservationRepositoryImpl implements ReservationRepository {
     }
 
     @Override
-    public int remove(int reservationId) {
-        reservations.remove(reservationId);
+    public boolean remove(int reservationId) {
+        boolean wasRemoved = Optional.ofNullable(reservations.remove(reservationId)).isPresent();
         saveToFile();
-        return reservationId;
+        return wasRemoved;
     }
 
     private void load() {

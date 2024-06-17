@@ -16,8 +16,8 @@ public class LoggingFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
 
         System.out.println();
-        System.out.println("Request URL: " + request.getRequestURL());
-        System.out.println("Request Host: " + request.getRemoteHost());
+        System.out.printf("Request: %s %s%n", request.getMethod(), request.getRequestURL());
+        System.out.printf("Request Host: %s%n", request.getRemoteHost());
         System.out.println();
 
         filterChain.doFilter(servletRequest, servletResponse);

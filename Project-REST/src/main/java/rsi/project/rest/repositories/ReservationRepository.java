@@ -1,12 +1,13 @@
 package rsi.project.rest.repositories;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import rsi.project.rest.models.Reservation;
 
 public interface ReservationRepository {
 
-    Reservation getById(int id);
+    Optional<Reservation> getById(int id);
 
     Collection<Reservation> getAll();
 
@@ -14,5 +15,5 @@ public interface ReservationRepository {
 
     int add(Reservation reservation);
 
-    int remove(int reservationId);
+    boolean remove(int reservationId);
 }

@@ -5,6 +5,8 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.LinkedHashSet;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.itextpdf.io.image.ImageData;
@@ -18,6 +20,7 @@ import com.itextpdf.layout.element.LineSeparator;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.properties.HorizontalAlignment;
 import com.itextpdf.layout.properties.TextAlignment;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import rsi.project.rest.models.Car;
 import rsi.project.rest.models.Reservation;
@@ -57,7 +60,7 @@ public class CarRentalServiceImpl implements CarRentalService {
     }
 
     @Override
-    public Car getCarById(int id) {
+    public Optional<Car> getCarById(int id) {
         return carRepository.getById(id);
     }
 
@@ -67,27 +70,29 @@ public class CarRentalServiceImpl implements CarRentalService {
     }
 
     @Override
-    public Reservation getReservationById(int id) {
+    public Optional<Reservation> getReservationById(int id) {
         return reservationRepository.getById(id);
     }
 
     @Override
     public Reservation reserveCar(int carId, Date from, Date to) {
-        Car car = carRepository.getById(carId);
+        Car car = carRepository.getById(carId)
+                .orElseThrow(() -> new NoSuchElementException("Car with id %d not found".formatted(carId)));
         Reservation reservation = new Reservation(car.getId(), from, to);
         reservationRepository.add(reservation);
         return reservation;
     }
 
     @Override
-    public int cancelReservation(int reservationId) {
+    public boolean cancelReservation(int reservationId) {
         return reservationRepository.remove(reservationId);
     }
 
     @Override
     public byte[] generatePDFReservationConfirmation(int reservationId) {
-        Reservation reservation = reservationRepository.getById(reservationId);
-        Car car = carRepository.getById(reservation.getCarId());
+        Reservation reservation = reservationRepository.getById(reservationId)
+                .orElseThrow(() -> new NoSuchElementException("Reservation with id %d not found".formatted(reservationId)));
+        Car car = carRepository.getById(reservation.getCarId()).orElseThrow();
         return generatePDF(reservation, car);
     }
 
