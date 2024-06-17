@@ -2,6 +2,8 @@ import os
 import sys
 import base64
 import tkinter as tk
+from http import HTTPStatus
+
 import tkcalendar as tkc
 import io
 import tkinter
@@ -41,7 +43,8 @@ class CarRentalClient:
         if response.status_code == 200:
             return response.json()["_embedded"]["carList"]
         else:
-            print('Status code:', response.status_code)
+            print(f"Request: {response.request.method} {response.url}")
+            print(f"Status code: {response.status_code} {HTTPStatus(response.status_code).phrase}")
             print('Response:', response.text)
 
     def get_available_cars(self, from_date, to_date):
@@ -53,7 +56,8 @@ class CarRentalClient:
         if response.status_code == 200:
             return response.json()["_embedded"]["carList"]
         else:
-            print('Status code:', response.status_code)
+            print(f"Request: {response.request.method} {response.url}")
+            print(f"Status code: {response.status_code} {HTTPStatus(response.status_code).phrase}")
             print('Response:', response.text)
 
     def get_car_by_id(self, car_id):
@@ -61,7 +65,8 @@ class CarRentalClient:
         if response.status_code == 200:
             return response.json()
         else:
-            print('Status code:', response.status_code)
+            print(f"Request: {response.request.method} {response.url}")
+            print(f"Status code: {response.status_code} {HTTPStatus(response.status_code).phrase}")
             print('Response:', response.text)
 
     def get_all_reservations(self):
@@ -69,7 +74,8 @@ class CarRentalClient:
         if response.status_code == 200:
             return response.json()
         else:
-            print('Status code:', response.status_code)
+            print(f"Request: {response.request.method} {response.url}")
+            print(f"Status code: {response.status_code} {HTTPStatus(response.status_code).phrase}")
             print('Response:', response.text)
 
     def get_reservation_by_id(self, reservation_id):
@@ -77,7 +83,8 @@ class CarRentalClient:
         if response.status_code == 200:
             return response.json()
         else:
-            print('Status code:', response.status_code)
+            print(f"Request: {response.request.method} {response.url}")
+            print(f"Status code: {response.status_code} {HTTPStatus(response.status_code).phrase}")
             print('Response:', response.text)
 
     def reserve_car(self, car_id, from_date, to_date):
@@ -90,7 +97,8 @@ class CarRentalClient:
         if response.status_code == 200:
             return response.json()
         else:
-            print('Status code:', response.status_code)
+            print(f"Request: {response.request.method} {response.url}")
+            print(f"Status code: {response.status_code} {HTTPStatus(response.status_code).phrase}")
             print('Response:', response.text)
 
     def cancel_reservation(self, reservation_id):
@@ -98,15 +106,18 @@ class CarRentalClient:
         if response.status_code == 200:
             print('Reservation cancelled successfully')
         else:
-            print('Status code:', response.status_code)
+            print(f"Request: {response.request.method} {response.url}")
+            print(f"Status code: {response.status_code} {HTTPStatus(response.status_code).phrase}")
             print('Response:', response.text)
+        return response.status_code == 200
 
     def generate_pdf_reservation_confirmation(self, reservation_id):
         response = session.get(f"{self.base_url}/reservations/{reservation_id}/confirmation")
         if response.status_code == 200:
             return response.content
         else:
-            print('Status code:', response.status_code)
+            print(f"Request: {response.request.method} {response.url}")
+            print(f"Status code: {response.status_code} {HTTPStatus(response.status_code).phrase}")
             print('Response:', response.text)
 
 
@@ -176,16 +187,31 @@ def reserve_car():
                         """)
     confirmation_entry.delete(0, tk.END)
     confirmation_entry.insert(0, reservation_id)
+    confirmation_text = confirmation_entry.get()
+
+    confirmation_pdf_link = reservation["_links"]["pdf-confirmation"]["href"]
+    response = session.get(confirmation_pdf_link)
+    if response.status_code == 200:
+        file_name = confirmation_text + "_reservation.pdf"
+        with open(file_name, "wb") as pdf_file:
+            pdf_file.write(response.content)
+
+        os.startfile(file_name)
+    else:
+        print(f"Request: {response.request.method} {response.url}")
+        print(f"Status code: {response.status_code} {HTTPStatus(response.status_code).phrase}")
+        print('Response:', response.text)
 
 
 def cancel_reservation():
     confirmation_text = confirmation_entry.get()
-    client.cancel_reservation(confirmation_text)
-    messagebox.showinfo("Reservation cancel",
-                        f"""
-                        Reservation cancelled successfully
-                        Reservation id: {confirmation_text}
-                        """)
+    deleted = client.cancel_reservation(confirmation_text)
+    if deleted:
+        messagebox.showinfo("Reservation cancel",
+                            f"""
+                            Reservation cancelled successfully
+                            Reservation id: {confirmation_text}
+                            """)
 
 
 root = tk.Tk()
