@@ -1,17 +1,16 @@
 package org.example;
 
+import javax.ejb.ActivationConfigProperty;
+import javax.ejb.MessageDriven;
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.MessageListener;
+import javax.jms.TextMessage;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import jakarta.ejb.ActivationConfigProperty;
-import jakarta.ejb.MessageDriven;
-import jakarta.jms.JMSException;
-import jakarta.jms.Message;
-import jakarta.jms.MessageListener;
-import jakarta.jms.TextMessage;
-
 @MessageDriven(mappedName = "jms/MyTopic", activationConfig = {
-        @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "jakarta.jms.Topic")
+        @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Topic")
 })
 public class JMSSubscriber implements MessageListener {
     

@@ -1,16 +1,16 @@
 package org.example;
 
-import jakarta.ejb.ActivationConfigProperty;
-import jakarta.ejb.MessageDriven;
-import jakarta.jms.JMSException;
-import jakarta.jms.Message;
-import jakarta.jms.MessageListener;
-import jakarta.jms.TextMessage;
+import javax.ejb.ActivationConfigProperty;
+import javax.ejb.MessageDriven;
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.MessageListener;
+import javax.jms.TextMessage;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @MessageDriven(mappedName = "jms/MyQueue", activationConfig = {
-        @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "jakarta.jms.Queue")
+        @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue")
 })
 public class JMSConsumer implements MessageListener {
     
